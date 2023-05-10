@@ -36,7 +36,7 @@ function MenuAppBar() {
   };
 
   return (
-    <AppBar position='static' sx={{ bgcolor: "#394867" }}>
+    <AppBar position='static' sx={{ bgcolor: "#000000" }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <GitHubIcon sx={{ display: { xs: "none", md: "flex" }, ml: 15 }} />
@@ -134,7 +134,7 @@ function MenuAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
+                <Avatar alt='Dagem Teshome' src='/static/images/avatar/2.jpg' />
               </IconButton>
             </Tooltip>
             <Menu
