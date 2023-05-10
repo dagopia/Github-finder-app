@@ -68,17 +68,19 @@ const SearchAccount = () => {
     <Box
       component='form'
       sx={{
-        width: "100%",
+        width: "60%",
         maxWidth: "100%",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
+        mx: 20,
       }}
       autoComplete='off'
     >
       <FormControl
         variant='standard'
+        fullWidth
         sx={{
           //   ml: 30,
           my: 5,
