@@ -13,10 +13,17 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import GitHubIcon from "@mui/icons-material/GitHub";
-const pages = ["Home", "About", "Contact"];
+import Link from "@mui/material/Link";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { NavLink } from "react-router-dom";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function MenuAppBar() {
+  const [value, setValue] = React.useState(2);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -68,30 +75,6 @@ function MenuAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id='menu-appbar'
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
@@ -115,20 +98,29 @@ function MenuAppBar() {
           <Box
             sx={{
               mx: 20,
-
+              alignItems: "right",
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              sx={{ px: 4, mx: "30%" }}
+            >
+              <Tab
+                label='About'
+                component={NavLink}
+                sx={{ color: "white" }}
+                to='/about'
+              />
+              <Tab
+                label='Contact'
+                component={NavLink}
+                sx={{ color: "white" }}
+                to='/contact'
+              />
+            </Tabs>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
