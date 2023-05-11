@@ -24,7 +24,7 @@ function Footer() {
         bgcolor: "#000000",
         height: "20%",
         marginBottom: "0px",
-        marginTop: "29%",
+        marginTop: "35%",
       }}
     >
       <Container maxWidth='xl'>
