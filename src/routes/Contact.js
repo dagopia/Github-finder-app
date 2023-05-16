@@ -10,7 +10,8 @@ function Contact({ title, desc, Address, phoNumber }) {
         p: 4,
         ml: "20%",
         mt: "5%",
-        bgcolor: "#41644A",
+        bgcolor: "#263A29",
+
         color: "white",
       }}
     >

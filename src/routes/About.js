@@ -13,7 +13,7 @@ function About({ title, desc }) {
           ml: "20%",
           mt: "5%",
 
-          bgcolor: "#41644A",
+          bgcolor: "#263A29",
           color: "white",
         }}
       >
