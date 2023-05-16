@@ -13,8 +13,26 @@ function Home() {
         <MenuAppBar />
         <SearchAccount />
         <Routes>
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route
+            path='/about'
+            element={
+              <About
+                title=' Github Finder App'
+                desc='This is Github Finder app for finding Github Users by Searching Them'
+              />
+            }
+          />
+          <Route
+            path='/contact'
+            element={
+              <Contact
+                title=' Contact Me'
+                desc='Contact us if you have any Quation!'
+                Address='22 Golagole,Addis Ababa Ethiopia'
+                phoNumber='+251999887766'
+              />
+            }
+          />
         </Routes>
         <Footer />
       </div>

@@ -19,7 +19,7 @@ import Tab from "@mui/material/Tab";
 import { NavLink } from "react-router-dom";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function MenuAppBar() {
+function MenuAppBar({ title }) {
   const [value, setValue] = React.useState(2);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -43,7 +43,7 @@ function MenuAppBar() {
   };
 
   return (
-    <AppBar position='static' sx={{ bgcolor: "#000000" }}>
+    <AppBar position='static' sx={{ bgcolor: "#41644A" }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <GitHubIcon sx={{ display: { xs: "none", md: "flex" }, ml: 15 }} />
@@ -157,4 +157,8 @@ function MenuAppBar() {
     </AppBar>
   );
 }
+
+MenuAppBar.defaultProps = {
+  title: "Github Finder",
+};
 export default MenuAppBar;
