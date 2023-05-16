@@ -69,12 +69,13 @@ const SearchAccount = () => {
       component='form'
       sx={{
         width: "60%",
-        maxWidth: "100%",
+        maxWidth: "90%",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
         mx: 20,
+        mt: "5%",
       }}
       autoComplete='off'
     >
