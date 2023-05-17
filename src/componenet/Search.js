@@ -3,9 +3,11 @@ import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -65,36 +67,32 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 }));
 const SearchAccount = () => {
   return (
-    <Box
-      component='form'
-      sx={{
-        width: "60%",
-        maxWidth: "90%",
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        alignItems: "center",
-        mx: 20,
-        mt: "5%",
-      }}
-      autoComplete='off'
-    >
-      <FormControl
-        variant='standard'
-        fullWidth
-        sx={{
-          //   ml: 30,
-          my: 5,
-          bgcolor: "white",
-          borderRadius: "5px",
-        }}
-      >
-        <BootstrapInput id='bootstrap-input' placeholder='Search' />
-      </FormControl>
-
-      <Button variant='contained' sx={{ bgcolor: "#000000" }} size='large'>
-        Go
-      </Button>
+    <Box>
+      <Grid container spacing={0} sx={{ px: 5, py: 10 }}>
+        <Grid item xs={6} md={8}>
+          <FormControl
+            variant='standard'
+            fullWidth
+            sx={{
+              bgcolor: "white",
+              borderRadius: "5px",
+            }}
+          >
+            <BootstrapInput id='bootstrap-input' placeholder='Search' />
+          </FormControl>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <Box sx={{ display: "flex" }}>
+            <Button
+              variant='contained'
+              sx={{ bgcolor: "#000000" }}
+              size='large'
+            >
+              Go
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
