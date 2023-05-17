@@ -21,10 +21,10 @@ function UserResult() {
   const { users, loading, fetchUsers } = useContext(GithubContext);
   useEffect(() => {
     fetchUsers();
-  }, []); 
+  }, []);
 
   if (!loading) {
-    return ( 
+    return (
       <Box sx={{ color: "white", opacity: "0.9" }}>
         <Grid
           container
