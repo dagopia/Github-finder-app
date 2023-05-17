@@ -6,37 +6,14 @@ import SearchAccount from "../componenet/Search";
 import Footer from "../componenet/Footer";
 import About from "./About";
 import Contact from "./Contact";
+import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
 function Home() {
   return (
-    <BrowserRouter>
-      <div>
-        <MenuAppBar />
-        <SearchAccount />
-        <Routes>
-          <Route
-            path='/about'
-            element={
-              <About
-                title=' Github Finder App'
-                desc='This is Github Finder app for finding Github Users by Searching Them'
-              />
-            }
-          />
-          <Route
-            path='/contact'
-            element={
-              <Contact
-                title=' Contact Me'
-                desc='Contact us if you have any Quation!'
-                Address='22 Golagole,Addis Ababa Ethiopia'
-                phoNumber='+251999887766'
-              />
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <Box>
+      {/* <Typography>Github Finder</Typography> */}
+      <SearchAccount />
+    </Box>
   );
 }
 export default Home;
