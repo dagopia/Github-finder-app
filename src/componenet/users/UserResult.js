@@ -1,11 +1,14 @@
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
+import { useContext } from "react";
+
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import RotateRightIcon from "@mui/icons-material/RotateRight";
 import UserItem from "./UserItem";
+import GithubContext from "../../Context/github/GithubContext";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -13,28 +16,15 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-function UserResult() {
-  const [users, SetUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
+function UserResult() {
+  const { users, loading, fetchUsers } = useContext(GithubContext);
   useEffect(() => {
     fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
-    const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      },
-    });
-    const data = await response.json();
-
-    SetUsers(data);
-    setLoading(false);
-  };
+  }, []); 
 
   if (!loading) {
-    return (
+    return ( 
       <Box sx={{ color: "white", opacity: "0.9" }}>
         <Grid
           container
@@ -61,14 +51,3 @@ function UserResult() {
 }
 
 export default UserResult;
-{
-  /* <Grid item xs={4}>
-<Item>Item</Item>
-</Grid>
-<Grid item xs={4}>
-<Item>Item</Item>
-</Grid>
-<Grid item xs={4}>
-<Item>Item</Item>
-</Grid> */
-}
