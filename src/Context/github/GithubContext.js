@@ -27,7 +27,33 @@ export const GithubProvider = ({ children }) => {
       payload: data,
     });
   };
- 
+
+  //get search results
+  const searchUser = async (text) => {
+    setLoading();
+
+    const params = new URLSearchParams({
+      q: text,
+    });
+    const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+    const { items } = await response.json();
+
+    dispatch({
+      type: "GET_USERS",
+      payload: items,
+    });
+  };
+
+  //clear users from state
+  const clearUser = () => {
+    dispatch({
+      type: "CLEAR_USERS",
+    });
+  };
   const setLoading = () =>
     dispatch({
       type: "SET_LOADING",
@@ -39,6 +65,8 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         loading: state.loading,
         fetchUsers,
+        searchUser,
+        clearUser,
       }}
     >
       {children}

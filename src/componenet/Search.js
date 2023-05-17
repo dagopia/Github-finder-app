@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useContext } from "react";
 import { alpha, styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import InputLabel from "@mui/material/InputLabel";
@@ -8,7 +9,7 @@ import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
+import GithubContext from "../Context/github/GithubContext";
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#A0AAB4",
@@ -66,33 +67,71 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 const SearchAccount = () => {
+  const [text, setText] = useState("");
+
+  const { users, searchUser, clearUser } = useContext(GithubContext);
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (text === "") {
+      alert("plesae enter something");
+    } else {
+      searchUser(text);
+
+      setText(text);
+    }
+  };
   return (
     <Box>
-      <Grid container spacing={0} sx={{ px: 5, py: 10 }}>
-        <Grid item xs={6} md={8}>
-          <FormControl
-            variant='standard'
-            fullWidth
-            sx={{
-              bgcolor: "white",
-              borderRadius: "5px",
-            }}
-          >
-            <BootstrapInput id='bootstrap-input' placeholder='Search' />
-          </FormControl>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <Box sx={{ display: "flex" }}>
-            <Button
-              variant='contained'
-              sx={{ bgcolor: "#000000" }}
-              size='large'
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={0} sx={{ px: 5, py: 10 }}>
+          <Grid item xs={6} md={8}>
+            <FormControl
+              variant='standard'
+              fullWidth
+              sx={{
+                bgcolor: "white",
+                borderRadius: "5px",
+              }}
             >
-              Go
-            </Button>
-          </Box>
+              <BootstrapInput
+                id='bootstrap-input'
+                placeholder='Search'
+                type='text'
+                value={text}
+                onChange={handleChange}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} md={2}>
+            <Box sx={{ display: "flex" }}>
+              <Button
+                variant='contained'
+                type='submit'
+                sx={{ bgcolor: "#000000" }}
+                size='large'
+              >
+                Go
+              </Button>
+              {users.length > 0 && (
+                <Button
+                  onClick={clearUser}
+                  variant='contained'
+                  sx={{ bgcolor: "#000000", mx: 2 }}
+                  size='small'
+                >
+                  Clear
+                </Button>
+              )}
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </form>
     </Box>
   );
 };
