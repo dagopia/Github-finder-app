@@ -8,11 +8,13 @@ import About from "./About";
 import Contact from "./Contact";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
+import UserResult from "../componenet/users/UserResult";
 function Home() {
   return (
     <Box>
       {/* <Typography>Github Finder</Typography> */}
       <SearchAccount />
+      <UserResult />
     </Box>
   );
 }
