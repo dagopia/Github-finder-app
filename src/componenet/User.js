@@ -52,7 +52,7 @@ const UserCard = ({ user }) => {
               }}
             >
               {/* {`Mr. ${data?.data.fullName}`} */}
-              {user.login}
+              {user?.login}
             </Typography>
             <Typography
               sx={{
