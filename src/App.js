@@ -10,6 +10,7 @@ import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Footer from "./componenet/Footer";
 import NotFound from "./routes/NotFound";
+import PersonCard from "./componenet/Tasks/PersonCard";
 function App() {
   return (
     <GithubProvider>
@@ -40,6 +41,7 @@ function App() {
                   />
                 }
               />
+              <Route path='/person' element={<PersonCard />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
             <Footer />
