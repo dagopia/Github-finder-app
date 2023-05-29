@@ -9,12 +9,14 @@ import Contact from "./Contact";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import UserResult from "../componenet/users/UserResult";
+import UserCard from "../componenet/User";
 function Home() {
   return (
     <Box>
       {/* <Typography>Github Finder</Typography> */}
       <SearchAccount />
       <UserResult />
+      <UserCard />
     </Box>
   );
 }
