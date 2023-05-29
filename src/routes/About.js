@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Login from "../componenet/LoginCode";
+import ChangePass from "../componenet/ChangePass";
 
 function About({ title, desc }) {
   return (
@@ -26,6 +27,7 @@ function About({ title, desc }) {
         <Typography sx={{ opacity: "0.5", mx: 2, my: 2 }}>{desc}</Typography>
       </Paper>
       {/* <Login /> */}
+      <ChangePass />
     </Box>
   );
 }
